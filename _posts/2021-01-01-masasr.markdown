@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "MASA-SR: Matching Acceleration and Spatial Adaptation for Reference-Based Image Super-Resolution"
+date:   2021-01-01 11:59:59 +00:00
+image: /images/masasr.png
+categories: research
+author: "Liying Lu"
+authors: "<strong>Liying Lu</strong>, Wenbo Li, Xin Tao, Jiangbo Lu, Jiaya Jia"
+venue: "CVPR"
+arxiv: https://openaccess.thecvf.com/content/CVPR2021/papers/Lu_MASA-SR_Matching_Acceleration_and_Spatial_Adaptation_for_Reference-Based_Image_Super-Resolution_CVPR_2021_paper.pdf
+code: https://github.com/dvlab-research/MASA-SR
+---
+An approach for recovering high-frequency details in low-quality images by utilizing external reference images. We accelerate the correspondence matching process and introduce an improved feature adaptation method.
