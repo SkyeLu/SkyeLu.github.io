@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Video frame interpolation with transformer"
+title:  "Video Frame Interpolation with Transformer"
 date:   2022-01-01 11:59:59 +00:00
 image: /images/vfiformer.png
 categories: research
