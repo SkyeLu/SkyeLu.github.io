@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Audio-Driven 3D Facial Animation from In-the-Wild Videos"
+date:   2023-06-20 11:59:59 +00:00
+image: /images/audio.png
+categories: research
+author: "Liying Lu"
+authors: "<strong>Liying Lu</strong>, Tianke Zhang, Yunfei Liu, Xuangeng Chu, Yu Li"
+venue: "Arxiv Preprint"
+arxiv: https://arxiv.org/pdf/2306.11541
+---
+An approach for recovering high-frequency details in low-quality images by utilizing external reference images. We accelerate the correspondence matching process and introduce an improved feature adaptation method.
