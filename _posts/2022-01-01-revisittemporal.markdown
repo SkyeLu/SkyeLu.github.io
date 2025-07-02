@@ -10,4 +10,4 @@ venue: "CVPR"
 arxiv: https://openaccess.thecvf.com/content/CVPR2022/papers/Zhou_Revisiting_Temporal_Alignment_for_Video_Restoration_CVPR_2022_paper.pdf
 code: https://github.com/dvlab-research/MASA-SRhttps://github.com/redrock303/Revisiting-Temporal-Alignment-for-Video-Restoration
 ---
-we present a generic iterative alignment module which employs a gradual refinement scheme for sub-alignments of video restoration.
+We present a generic iterative alignment module which employs a gradual refinement scheme for sub-alignments of video restoration.
