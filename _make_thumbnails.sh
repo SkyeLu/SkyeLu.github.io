@@ -1,3 +1,6 @@
-for file in images/*.{jpg,png}; do
-    [ ! -f "tn/$file" ] && convert "$file"  -thumbnail 160x160 "tn/$file"
+shopt -s nullglob
+for file in images/*.{jpg,png,PNG}; do
+    filename=$(basename "$file")
+    [ ! -f "tn/$filename" ] && magick "$file" -thumbnail 160x160 "tn/images/$filename"
 done
+shopt -u nullglob
