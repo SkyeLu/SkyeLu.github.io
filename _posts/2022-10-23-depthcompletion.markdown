@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mipi 2022 challenge on rgb+ tof depth completion: Dataset and report"
+title:  "MIPI 2022 Challenge on RGB+ToF Depth Completion: Dataset and Report"
 date:   2022-10-23 11:59:59 +00:00
 image: /images/depthcompletion.png
 categories: project
