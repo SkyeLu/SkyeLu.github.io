@@ -8,201 +8,473 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2SY0GG0QBF');
 </script>
 
   <title>{{ site.name }}</title>
-
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
   <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+  
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.95);
+      --glass-highlight: rgba(255, 255, 255, 0.5);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --accent-color: #2c6fbb;
+      --accent-hover: #1a4a8a;
+    }
+    
+    body {
+      background: #f9fbfd;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      font-family: 'Lato', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(214, 228, 255, 0.3) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(214, 228, 255, 0.3) 0%, transparent 25%);
+    }
+    
+    .content-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: separate;
+      margin: 0 auto;
+      background: transparent;
+    }
+    
+    td {
+      padding: 2.5%;
+      vertical-align: middle;
+    }
+    
+    h1, h2, h3 {
+      color: #222;
+      font-weight: 700;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #1a3e6e;
+      position: relative;
+    }
+    
+    h1:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color), #a5c8ff);
+      border-radius: 2px;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eaeff5;
+      color: #1a3e6e;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #2c6fbb;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+    
+    img {
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 1px solid #f0f4f9;
+    }
+    
+    img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+    
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: #f0f7ff;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    
+    .social-links a:hover {
+      background: #dbeafe;
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+    
+    /* Liquid Glass Navigation */
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 20px 0 40px;
+      flex-wrap: wrap;
+      padding: 15px 0;
+      position: relative;
+    }
+    
+    .nav-glass-container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      box-shadow: var(--glass-shadow);
+      padding: 12px 25px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-glass-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg, 
+        transparent 0%, 
+        var(--glass-highlight) 50%, 
+        transparent 100%
+      );
+      transform: rotate(30deg);
+      animation: liquidFlow 8s linear infinite;
+      z-index: 0;
+    }
+    
+    .nav-btn {
+      padding: 12px 28px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.4);
+      color: var(--accent-color);
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: 140px;
+    }
+    
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.7);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+    }
+    
+    .nav-btn i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    /* Section anchors */
+    .section-anchor {
+      position: relative;
+      top: -80px;
+      visibility: hidden;
+    }
+    
+    /* Project styling */
+    .project-links a {
+      display: inline-block;
+      margin-right: 12px;
+      margin-top: 8px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: #f0f7ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .project-links a:hover {
+      background: #dbeafe;
+      text-decoration: none;
+    }
+    
+    /* Animations */
+    @keyframes liquidFlow {
+      0% { transform: translateY(0) rotate(30deg); }
+      100% { transform: translateY(-50%) rotate(30deg); }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .content-container {
+        margin: 20px;
+        border-radius: 10px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.7rem;
+      }
+      
+      td {
+        display: block;
+        width: 100% !important;
+      }
+      
+      img {
+        max-width: 70%;
+        display: block;
+        margin: 0 auto 20px;
+      }
+      
+      .section-nav {
+        gap: 15px;
+        margin: 10px 0 30px;
+      }
+      
+      .nav-glass-container {
+        padding: 10px 15px;
+      }
+      
+      .nav-btn {
+        padding: 10px 20px;
+        min-width: 120px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:60%;vertical-align:middle">
-              <h1>
-                Liying Lu
-              </h1>
-              <p>
-                I am a PhD student at the <a href="https://www.epfl.ch/labs/ivrl/">Image and Visual Representation Lab</a> at the 
-                <a href="https://www.epfl.ch/en/">École Polytechnique Fédérale de Lausanne (EPFL)</a>, 
-                where I focus on computer vision and computational photography. I am fortunate to be advised by Prof. 
-                <a href="https://people.epfl.ch/sabine.susstrunk">Sabine Süsstrunk</a>, and I am also working with Dr. 
-                <a href="https://rachddou.github.io/">Raphaël Achddou</a>.
-              </p>
-              <p>
-                Prior to my PhD, I completed my Master's degree at the <a href="https://www.dvlab.ai/people">Deep Vision Lab</a> at 
-                <a href="https://www.cuhk.edu.hk/chinese/index.html">The Chinese University of Hong Kong (CUHK)</a>, where I worked with Prof. 
-                <a href="https://jiaya.me/home">Jiaya Jia</a>. Before that, I earned my Bachelor's degree from 
-                <a href="https://english.hust.edu.cn/">Huazhong University of Science and Technology (HUST)</a>.
-              <p style="text-align:center">
-                <a target="_blank" href="https://mailhide.io/e/ZMirjj5l"> Email</a> &nbsp;/&nbsp;
-                <a href="https://github.com/SkyeLu">GitHub</a> &nbsp;/&nbsp;
-                <a href="https://scholar.google.com/citations?user=WT8kWYYAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
-                <a href="http://linkedin.com/in/liying-lu-a22556373">LinkedIn</a> 
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <img style="width:100%;max-width:100%" alt="profile photo" src="images/cropped_circle_image.png">
-            </td>
-          </tr>
-        </table>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Research</h2>
-              <p>
-                I'm interested in computer vision and computational photography.
-              </p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
+  <div class="content-container">
+    <table>
+      <tr>
+        <td style="width:60%;vertical-align:middle">
+          <h1>Liying Lu</h1>
+          <p>
+            I am a PhD student at the <a href="https://www.epfl.ch/labs/ivrl/">Image and Visual Representation Lab</a> at the 
+            <a href="https://www.epfl.ch/en/">École Polytechnique Fédérale de Lausanne (EPFL)</a>, 
+            where I focus on computer vision and computational photography. I am fortunate to be advised by Prof. 
+            <a href="https://people.epfl.ch/sabine.susstrunk">Sabine Süsstrunk</a>, and I am also working with Dr. 
+            <a href="https://rachddou.github.io/">Raphaël Achddou</a>.
+          </p>
+          <p>
+            Prior to my PhD, I completed my Master's degree at the <a href="https://www.dvlab.ai/people">Deep Vision Lab</a> at 
+            <a href="https://www.cuhk.edu.hk/chinese/index.html">The Chinese University of Hong Kong (CUHK)</a>, where I worked with Prof. 
+            <a href="https://jiaya.me/home">Jiaya Jia</a>. Before that, I earned my Bachelor's degree from 
+            <a href="https://english.hust.edu.cn/">Huazhong University of Science and Technology (HUST)</a>.
+          </p>
+          <p class="social-links" style="text-align:center; margin-top: 25px;">
+            <a target="_blank" href="https://mailhide.io/e/ZMirjj5l"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://github.com/SkyeLu"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://scholar.google.com/citations?user=WT8kWYYAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i> Scholar</a>
+            <a href="http://linkedin.com/in/liying-lu-a22556373"><i class="fab fa-linkedin"></i> LinkedIn</a> 
+          </p>
+        </td>
+        <td style="width:40%;text-align:center">
+          <img alt="profile photo" src="images/cropped_circle_image.png" style="max-width: 85%;">
+        </td>
+      </tr>
+      
+      <!-- Navigation Links with Liquid Glass Effect -->
+      <tr>
+        <td colspan="2" style="text-align:center; padding: 0 5%;">
+          <div class="section-nav">
+            <div class="nav-glass-container">
+              <a href="#research-section" class="nav-btn">
+                <i class="fas fa-flask"></i> Research
+              </a>
+              <a href="#projects-section" class="nav-btn">
+                <i class="fas fa-project-diagram"></i> Projects
+              </a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      
+      <!-- Research Section -->
+      <tr>
+        <td colspan="2" style="padding:2.5% 5%">
+          <div class="section-anchor" id="research-section"></div>
+          <h2><i class="fas fa-flask"></i> Research</h2>
+          <p>
+            I'm interested in computer vision and computational photography. My work focuses on developing innovative algorithms 
+            to enhance image quality and enable new visual experiences.
+          </p>
+        </td>
+      </tr>
+      
+      {% for post in site.posts %}
+        {% for cat in post.categories %}
           {% if cat == 'research' %}
-          <tr>
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>{{post.title}}</h3>
-              <br>
-              {{post.authors}}
-
-              <br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              <br>
-              {% if post.arxiv %}
-              <a href="{{post.arxiv}}">arxiv</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> /
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
-              {% endif %}
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.youtube %}
-              <a href="{{post.youtube}}">youtube</a> /
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td>
-          </tr>
+            <tr>
+              <td style="width:25%;vertical-align:middle;min-width:120px;text-align:center">
+                <img src="/tn{{post.image}}" alt="project image" style="width:auto; max-width:100%;">
+              </td>
+              <td style="width:75%;vertical-align:middle">
+                <h3>{{post.title}}</h3>
+                <p style="margin: 8px 0; color: #555;">
+                  {{post.authors}}
+                </p>
+                <p style="font-style: italic; color: #666; margin-bottom: 10px;">
+                  {{post.venue}}, {{ post.date | date: "%Y" }}
+                </p>
+                <div class="project-links">
+                  {% if post.arxiv %}
+                    <a href="{{post.arxiv}}"><i class="fas fa-file-alt"></i> arXiv</a>
+                  {% endif %}
+                  {% if post.video %}
+                    <a href="{{post.video}}"><i class="fas fa-video"></i> Video</a>
+                  {% endif %}
+                  {% if post.code %}
+                    <a href="{{post.code}}"><i class="fab fa-github"></i> Code</a>
+                  {% endif %}
+                  {% if post.poster %}
+                    <a href="{{post.poster}}"><i class="fas fa-image"></i> Poster</a>
+                  {% endif %}
+                  {% if post.slides %}
+                    <a href="{{post.slides}}"><i class="fas fa-presentation"></i> Slides</a>
+                  {% endif %}
+                  {% if post.website %}
+                    <a href="{{post.website}}"><i class="fas fa-link"></i> Website</a>
+                  {% endif %}
+                  {% if post.youtube %}
+                    <a href="{{post.youtube}}"><i class="fab fa-youtube"></i> YouTube</a>
+                  {% endif %}
+                </div>
+                <p style="margin-top: 15px; color: #444; line-height: 1.6;">
+                  {{ post.excerpt }}
+                </p>
+              </td>
+            </tr>
           {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-        <br>
-        <br>
-        <br>
-
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Projects</h2>
-              <p>
-                Here are some research projects I’ve worked on.
-              </p>
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
+        {% endfor %}
+      {% endfor %}
+      
+      <!-- Projects Section -->
+      <tr>
+        <td colspan="2" style="padding:2.5% 5%">
+          <div class="section-anchor" id="projects-section"></div>
+          <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+          <p>
+            Here are some research projects I've worked on, showcasing practical applications of computer vision 
+            and computational photography techniques.
+          </p>
+        </td>
+      </tr>
+      
+      {% for post in site.posts %}
+        {% for cat in post.categories %}
           {% if cat == 'project' %}
-          <tr>
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>{{post.title}}</h3>
-              <br>
-              <em>{{post.categories}} {{post.venue}}</em>
-              <br>
-              {{ post.date | date: "%Y-%m" }}
-
-              <br>
-              {% if post.website %}
-              <a href="{{post.website}}">website</a> /
-              {% endif %}
-              {% if post.paper %}
-              <a href="{{post.paper}}">paper</a> /
-              {% endif %}
-              {% if post.patent %}
-              <a href="{{post.patent}}">patent</a> /
-              {% endif %}
-              {% if post.patent2 %}
-              <a href="{{post.patent2}}">patent #2</a> /
-              {% endif %}
-              {% if post.patent3 %}
-              <a href="{{post.patent3}}">patent #3</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.video2 %}
-              <a href="{{post.video2}}">video #2</a> /
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> /
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td>
-          </tr>
+            <tr>
+              <td style="width:25%;vertical-align:middle;min-width:120px;text-align:center">
+                <img src="/tn{{post.image}}" alt="project image" style="width:auto; max-width:100%;">
+              </td>
+              <td style="width:75%;vertical-align:middle">
+                <h3>{{post.title}}</h3>
+                <p style="font-style: italic; color: #666; margin-bottom: 10px;">
+                  {{post.categories}} • {{post.venue}} • {{ post.date | date: "%Y-%m" }}
+                </p>
+                <div class="project-links">
+                  {% if post.website %}
+                    <a href="{{post.website}}"><i class="fas fa-link"></i> Website</a>
+                  {% endif %}
+                  {% if post.paper %}
+                    <a href="{{post.paper}}"><i class="fas fa-file-pdf"></i> Paper</a>
+                  {% endif %}
+                  {% if post.patent %}
+                    <a href="{{post.patent}}"><i class="fas fa-certificate"></i> Patent</a>
+                  {% endif %}
+                  {% if post.patent2 %}
+                    <a href="{{post.patent2}}"><i class="fas fa-certificate"></i> Patent #2</a>
+                  {% endif %}
+                  {% if post.patent3 %}
+                    <a href="{{post.patent3}}"><i class="fas fa-certificate"></i> Patent #3</a>
+                  {% endif %}
+                  {% if post.video %}
+                    <a href="{{post.video}}"><i class="fas fa-video"></i> Video</a>
+                  {% endif %}
+                  {% if post.video2 %}
+                    <a href="{{post.video2}}"><i class="fas fa-video"></i> Video #2</a>
+                  {% endif %}
+                  {% if post.code %}
+                    <a href="{{post.code}}"><i class="fab fa-github"></i> Code</a>
+                  {% endif %}
+                  {% if post.poster %}
+                    <a href="{{post.poster}}"><i class="fas fa-image"></i> Poster</a>
+                  {% endif %}
+                  {% if post.slides %}
+                    <a href="{{post.slides}}"><i class="fas fa-presentation"></i> Slides</a>
+                  {% endif %}
+                </div>
+                <p style="margin-top: 15px; color: #444; line-height: 1.6;">
+                  {{ post.excerpt }}
+                </p>
+              </td>
+            </tr>
           {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-        <br>
-        <br>
-        <br>
-       
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:center;font-size:small;">
-                Design and source code from <a style="font-size:small;" href="https://leonidk.com/">Leonid Keselman</a> and <a style="font-size:small;" href="https://jonbarron.info//">Jon Barron</a>'s website
-              </p>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+        {% endfor %}
+      {% endfor %}
+      
+      <tr>
+        <td colspan="2" style="text-align:center;padding:30px 0 20px; border-top: 1px solid #eaeff5; margin-top: 20px;">
+          <p style="font-size:small;opacity:0.7; color: #666;">
+            Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a> and 
+            <a href="https://jonbarron.info//">Jon Barron</a>'s website
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
 </body>
 
 </html>
-
