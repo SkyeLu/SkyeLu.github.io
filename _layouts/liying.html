@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SY0GG0QBF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2SY0GG0QBF');
+  </script>
+
+  <title>{{ site.name }}</title>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta name="author" content="{{ site.name }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --glass-highlight: rgba(255, 255, 255, 0.15);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: 'Lato', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(92, 132, 252, 0.1) 0%, transparent 70%);
+      animation: liquidMovement 20s infinite alternate;
+      z-index: -1;
+    }
+    
+    .glass-container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      box-shadow: var(--glass-shadow);
+      overflow: hidden;
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+    }
+    
+    .glass-container::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, 
+        rgba(92, 132, 252, 0.05), 
+        rgba(224, 195, 252, 0.05), 
+        rgba(92, 229, 252, 0.05));
+      z-index: -1;
+      border-radius: 34px;
+      animation: gradientShift 15s ease infinite;
+      background-size: 300% 300%;
+    }
+    
+    table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: separate;
+      margin: 0 auto;
+      background: transparent;
+    }
+    
+    td {
+      padding: 2.5%;
+      vertical-align: middle;
+    }
+    
+    h1, h2, h3 {
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #e0e7ff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    
+    a {
+      color: #a5b4fc;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    a:hover {
+      color: #e0e7ff;
+      text-decoration: none;
+    }
+    
+    a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #a5b4fc, transparent);
+      transition: width 0.4s ease;
+    }
+    
+    a:hover::after {
+      width: 100%;
+    }
+    
+    img {
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transform: perspective(800px) rotateY(-5deg);
+      transition: transform 0.5s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    img:hover {
+      transform: perspective(800px) rotateY(0deg);
+    }
+    
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      background: rgba(165, 180, 252, 0.1);
+      border: 1px solid rgba(165, 180, 252, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: rgba(165, 180, 252, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(92, 132, 252, 0.2);
+    }
+    
+    @keyframes liquidMovement {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .glass-container {
+        margin: 20px;
+        border-radius: 20px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      td {
+        display: block;
+        width: 100% !important;
+      }
+      
+      img {
+        max-width: 70%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glass-container">
+    <table>
+      <tr>
+        <td style="width:60%;vertical-align:middle">
+          <h1>Liying Lu</h1>
+          <p>
+            I am a PhD student at the <a href="https://www.epfl.ch/labs/ivrl/">Image and Visual Representation Lab</a> at the 
+            <a href="https://www.epfl.ch/en/">École Polytechnique Fédérale de Lausanne (EPFL)</a>, 
+            where I focus on computer vision and computational photography. I am fortunate to be advised by Prof. 
+            <a href="https://people.epfl.ch/sabine.susstrunk">Sabine Süsstrunk</a>, and I am also working with Dr. 
+            <a href="https://rachddou.github.io/">Raphaël Achddou</a>.
+          </p>
+          <p>
+            Prior to my PhD, I completed my Master's degree at the <a href="https://www.dvlab.ai/people">Deep Vision Lab</a> at 
+            <a href="https://www.cuhk.edu.hk/chinese/index.html">The Chinese University of Hong Kong (CUHK)</a>, where I worked with Prof. 
+            <a href="https://jiaya.me/home">Jiaya Jia</a>. Before that, I earned my Bachelor's degree from 
+            <a href="https://english.hust.edu.cn/">Huazhong University of Science and Technology (HUST)</a>.
+          </p>
+          <p class="social-links" style="text-align:center">
+            <a target="_blank" href="https://mailhide.io/e/ZMirjj5l">Email</a>
+            <a href="https://github.com/SkyeLu">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=WT8kWYYAAAAJ&hl=en">Google Scholar</a>
+            <a href="http://linkedin.com/in/liying-lu-a22556373">LinkedIn</a> 
+          </p>
+        </td>
+        <td style="width:40%;text-align:center">
+          <img alt="profile photo" src="images/cropped_circle_image.png">
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2" style="padding:2.5% 5%">
+          <h2>Research</h2>
+          <p>
+            I'm interested in computer vision and computational photography.
+          </p>
+        </td>
+      </tr>
+      
+      {% for post in site.posts %}
+        {% for cat in post.categories %}
+          {% if cat == 'research' %}
+            <tr>
+              <td style="width:25%;vertical-align:middle;min-width:120px;text-align:center">
+                <img src="/tn{{post.image}}" alt="project image" style="width:auto; max-width:100%;">
+              </td>
+              <td style="width:75%;vertical-align:middle">
+                <h3>{{post.title}}</h3>
+                <br>
+                {{post.authors}}
+                <br>
+                <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+                <br>
+                <div class="project-links">
+                  {% if post.arxiv %}
+                    <a href="{{post.arxiv}}">arxiv</a>
+                  {% endif %}
+                  {% if post.video %}
+                    <a href="{{post.video}}">video</a>
+                  {% endif %}
+                  {% if post.code %}
+                    <a href="{{post.code}}">code</a>
+                  {% endif %}
+                  {% if post.poster %}
+                    <a href="{{post.poster}}">poster</a>
+                  {% endif %}
+                  {% if post.slides %}
+                    <a href="{{post.slides}}">slides</a>
+                  {% endif %}
+                  {% if post.website %}
+                    <a href="{{post.website}}">website</a>
+                  {% endif %}
+                  {% if post.youtube %}
+                    <a href="{{post.youtube}}">youtube</a>
+                  {% endif %}
+                </div>
+                <p>{{ post.excerpt }}</p>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      
+      <tr>
+        <td colspan="2" style="text-align:center;padding:30px 0 10px">
+          <p style="font-size:small;opacity:0.7;">
+            Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a> and 
+            <a href="https://jonbarron.info//">Jon Barron</a>'s website
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
