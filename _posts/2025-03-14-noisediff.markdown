@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Noise Synthesis for Low-Light Image Denoising with Diffusion Models"
+title:  "Dark Noise Diffusion: Noise Synthesis for Low-Light Image Denoising"
 date:   2025-03-14 11:59:59 +00:00
 image: /images/noisediff.png
 categories: research
 author: "Liying Lu"
 authors: "<strong>Liying Lu</strong>, Raphaël Achddou, Sabine Süsstrunk"
-venue: "International Conference on Computational Photography (ICCP)"
+venue: "ICCP / TPAMI"
 arxiv: https://arxiv.org/abs/2503.11262
 code: https://github.com/SkyeLu/NoiseDiff
 ---
