@@ -11,10 +11,11 @@
   gtag('config', 'G-2SY0GG0QBF');
 </script>
 
-  <title>Liying Lu</title>
+  <title>{{ site.name }}</title>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <meta name="author" content="Liying Lu" />
+  <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
   <style>
@@ -98,7 +99,7 @@
     }
 
     .hero-content h1 {
-      font-size: 2.5rem;
+      font-size: 32px;
       font-weight: 700;
       color: #1a1a1a;
       margin-bottom: 1rem;
@@ -140,6 +141,7 @@
       border: 2px solid #667eea;
       border-radius: 20px;
       transition: all 0.3s ease;
+      border-bottom: 2px solid #667eea;
     }
 
     .hero-links a:hover {
@@ -173,7 +175,7 @@
     }
 
     section h2 {
-      font-size: 2rem;
+      font-size: 22px;
       font-weight: 600;
       color: #1a1a1a;
       margin-bottom: 1rem;
@@ -185,6 +187,7 @@
     section > p {
       color: #666;
       margin-bottom: 2rem;
+      margin-top: 1rem;
     }
 
     /* Project/Research Cards */
@@ -219,10 +222,11 @@
     }
 
     .project-content h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       color: #1a1a1a;
       margin-bottom: 0.5rem;
+      display: block;
     }
 
     .project-authors {
@@ -251,7 +255,7 @@
       background: white;
       border-radius: 15px;
       transition: all 0.3s ease;
-      font-size: 0.9rem;
+      font-size: 14px;
     }
 
     .project-links a:hover {
@@ -271,7 +275,7 @@
       padding: 2rem;
       background: #f8f9fa;
       color: #888;
-      font-size: 0.9rem;
+      font-size: 14px;
     }
 
     .footer a {
@@ -288,7 +292,7 @@
       }
 
       .hero-content h1 {
-        font-size: 2rem;
+        font-size: 28px;
       }
 
       .hero-links {
@@ -346,9 +350,9 @@
           <a href="https://english.hust.edu.cn/">Huazhong University of Science and Technology (HUST)</a>.
         </p>
         <div class="hero-links">
-          <a href="https://mailhide.io/e/ZMirjj5l" target="_blank">Email</a>
+          <a target="_blank" href="https://mailhide.io/e/ZMirjj5l">Email</a>
           <a href="https://github.com/SkyeLu">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=WT8kWYYAAAAJ&hl=en">Scholar</a>
+          <a href="https://scholar.google.com/citations?user=WT8kWYYAAAAJ&hl=en">Google Scholar</a>
           <a href="http://linkedin.com/in/liying-lu-a22556373">LinkedIn</a>
         </div>
       </div>
@@ -362,25 +366,46 @@
       <h2>Research</h2>
       <p>I'm interested in computer vision and computational photography.</p>
       
-      <!-- Research items will be populated by Jekyll -->
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'research' %}
       <div class="project-card">
         <div class="project-image">
-          <img src="https://via.placeholder.com/200x150?text=Research+Image" alt="Research project">
+          <img src="/tn{{post.image}}" alt="{{post.title}}" />
         </div>
         <div class="project-content">
-          <h3>Research Project Title</h3>
-          <div class="project-authors">Author Names</div>
-          <div class="project-venue">Conference/Journal Name, 2024</div>
+          <h3>{{post.title}}</h3>
+          <div class="project-authors">{{post.authors}}</div>
+          <div class="project-venue"><em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}</div>
           <div class="project-links">
-            <a href="#">arXiv</a>
-            <a href="#">code</a>
-            <a href="#">project page</a>
+            {% if post.arxiv %}
+            <a href="{{post.arxiv}}">arxiv</a>
+            {% endif %}
+            {% if post.video %}
+            <a href="{{post.video}}">video</a>
+            {% endif %}
+            {% if post.code %}
+            <a href="{{post.code}}">code</a>
+            {% endif %}
+            {% if post.poster %}
+            <a href="{{post.poster}}">poster</a>
+            {% endif %}
+            {% if post.slides %}
+            <a href="{{post.slides}}">slides</a>
+            {% endif %}
+            {% if post.website %}
+            <a href="{{post.website}}">website</a>
+            {% endif %}
+            {% if post.youtube %}
+            <a href="{{post.youtube}}">youtube</a>
+            {% endif %}
           </div>
-          <div class="project-excerpt">
-            Brief description of the research project and its contributions to the field.
-          </div>
+          <div class="project-excerpt">{{ post.excerpt }}</div>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
     </section>
 
     <!-- Projects Section -->
@@ -388,29 +413,59 @@
       <h2>Projects</h2>
       <p>Here are some research projects I've worked on.</p>
       
-      <!-- Project items will be populated by Jekyll -->
+      {% for post in site.posts %}
+      {% for cat in post.categories %}
+      {% if cat == 'project' %}
       <div class="project-card">
         <div class="project-image">
-          <img src="https://via.placeholder.com/200x150?text=Project+Image" alt="Project">
+          <img src="/tn{{post.image}}" alt="{{post.title}}" />
         </div>
         <div class="project-content">
-          <h3>Project Title</h3>
-          <div class="project-venue">Project Type, 2024</div>
+          <h3>{{post.title}}</h3>
+          <div class="project-venue"><em>{{post.categories}} {{post.venue}}</em> - {{ post.date | date: "%Y-%m" }}</div>
           <div class="project-links">
-            <a href="#">website</a>
-            <a href="#">paper</a>
-            <a href="#">video</a>
+            {% if post.website %}
+            <a href="{{post.website}}">website</a>
+            {% endif %}
+            {% if post.paper %}
+            <a href="{{post.paper}}">paper</a>
+            {% endif %}
+            {% if post.patent %}
+            <a href="{{post.patent}}">patent</a>
+            {% endif %}
+            {% if post.patent2 %}
+            <a href="{{post.patent2}}">patent #2</a>
+            {% endif %}
+            {% if post.patent3 %}
+            <a href="{{post.patent3}}">patent #3</a>
+            {% endif %}
+            {% if post.video %}
+            <a href="{{post.video}}">video</a>
+            {% endif %}
+            {% if post.video2 %}
+            <a href="{{post.video2}}">video #2</a>
+            {% endif %}
+            {% if post.code %}
+            <a href="{{post.code}}">code</a>
+            {% endif %}
+            {% if post.poster %}
+            <a href="{{post.poster}}">poster</a>
+            {% endif %}
+            {% if post.slides %}
+            <a href="{{post.slides}}">slides</a>
+            {% endif %}
           </div>
-          <div class="project-excerpt">
-            Brief description of the project and what it accomplishes.
-          </div>
+          <div class="project-excerpt">{{ post.excerpt }}</div>
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
     </section>
 
     <!-- Footer -->
     <div class="footer">
-      Modified from <a href="https://leonidk.com/">Leonid Keselman</a> and <a href="https://jonbarron.info/">Jon Barron</a>'s website. 
+      Design and source code from <a href="https://leonidk.com/">Leonid Keselman</a> and <a href="https://jonbarron.info/">Jon Barron</a>'s website
     </div>
   </div>
 </body>
