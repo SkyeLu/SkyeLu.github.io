@@ -8,6 +8,6 @@ author: "Kun Zhou"
 authors: "Kun Zhou, Wenbo Li, <strong>Liying Lu</strong>, Xiaoguang Han, Jiangbo Lu"
 venue: "CVPR"
 arxiv: https://openaccess.thecvf.com/content/CVPR2022/papers/Zhou_Revisiting_Temporal_Alignment_for_Video_Restoration_CVPR_2022_paper.pdf
-code: https://github.com/dvlab-research/MASA-SRhttps://github.com/redrock303/Revisiting-Temporal-Alignment-for-Video-Restoration
+code: https://github.com/redrock303/Revisiting-Temporal-Alignment-for-Video-Restoration
 ---
 We present a generic iterative alignment module which employs a gradual refinement scheme for sub-alignments of video restoration.
