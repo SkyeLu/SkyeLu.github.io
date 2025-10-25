@@ -61,9 +61,10 @@
     }
 
     .nav-btn {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.7) 0%, rgba(118, 75, 162, 0.7) 100%);  /* New: semi-transparent gradient */
+      backdrop-filter: blur(10px);                                     /* New: frosted glass blur */
       color: white;
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);                     /* New: subtle white border */
       padding: 0.7rem 1.4rem;
       border-radius: 25px;
       cursor: pointer;
@@ -72,11 +73,14 @@
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);                       /* New: soft shadow */
     }
 
     .nav-btn:hover {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);  /* New: brighter on hover */
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+      border-color: rgba(255, 255, 255, 0.5);                         /* New: brighter border on hover */
     }
 
     /* Main Container */
