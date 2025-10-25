@@ -141,19 +141,22 @@
       text-decoration: none;
       font-weight: 500;
       padding: 0.6rem 1rem;
-      border: 2px solid #667eea;
+      background: rgba(255, 255, 255, 0.3);          /* New: semi-transparent white */
+      backdrop-filter: blur(10px);                    /* New: frosted glass blur */
+      border: 1px solid rgba(255, 255, 255, 0.5);    /* New: subtle transparent border */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);      /* New: soft shadow */
       border-radius: 20px;
       transition: all 0.3s ease;
-      border-bottom: 2px solid #667eea;
       white-space: nowrap;
       line-height: 1;
       font-size: 13px;
     }
 
     .hero-links a:hover {
-      background: #667eea;
-      color: white;
+      background: rgba(102, 126, 234, 0.2);          /* New: purple tint */
+      border-color: rgba(102, 126, 234, 0.5);        /* New: purple border */
       transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(102, 126, 234, 0.2); /* New: purple shadow */
     }
 
     .hero-image {
