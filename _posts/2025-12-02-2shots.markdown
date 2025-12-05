@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "2 Shots in the Dark Low Light Denoising with Minimal Data Acquisition"
+title:  "2-Shots in the Dark Low Light Denoising with Minimal Data Acquisition"
 date:   2025-12-02 11:59:59 +00:00
 image: /images/2shots.png
 categories: research
