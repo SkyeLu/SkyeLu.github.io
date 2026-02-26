@@ -6,7 +6,7 @@ image: /images/2shots.png
 categories: research
 author: "Liying Lu"
 authors: "<strong>Liying Lu</strong>, Raphaël Achddou, Sabine Süsstrunk"
-venue: "Arxiv Preprint"
+venue: "CVPR, 2026"
 arxiv: https://arxiv.org/pdf/2512.03245
 code: https://github.com/SkyeLu/2-Shots-in-the-Dark
 ---
