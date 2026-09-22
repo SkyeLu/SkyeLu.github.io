@@ -284,6 +284,45 @@
       margin-top: 1rem;
     }
 
+    /* News Section */
+    .news-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .news-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      padding: 1rem 1.5rem;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s ease;
+    }
+
+    .news-item:hover {
+      background: #f0f2f5;
+      transform: translateX(4px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .news-date {
+      flex: 0 0 auto;
+      font-weight: 700;
+      color: #667eea;
+      font-size: 13px;
+      white-space: nowrap;
+      min-width: 90px;
+    }
+
+    .news-text {
+      color: #444;
+      line-height: 1.6;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -341,6 +380,7 @@
   <nav class="nav-bar">
     <div class="nav-container">
       <a href="#about" class="nav-btn">About</a>
+      <a href="#news" class="nav-btn">News</a>
       <a href="#research" class="nav-btn">Research</a>
       <a href="#projects" class="nav-btn">Projects</a>
     </div>
@@ -374,6 +414,17 @@
       <div class="hero-image">
         <img src="images/cropped_circle_image.png" alt="Liying Lu">
       </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <span class="news-date">Sep 2026</span>
+          <span class="news-text">I just finished my internship at Adobe Nextcam.</span>
+        </li>
+      </ul>
     </section>
 
     <!-- Research Section -->
